@@ -5,14 +5,14 @@
 
 //---Global-Variables---------------------------------------------------------
 unsigned int setted_distance = 0;
-unsigned int setted_temp 	 = 0;
-bool input_permision 		 = false;//permite inputul la temperatura doar daca a fost introdusa distanta
-bool program_state 			 = false;//porneste si stinge anumite functionalitati a programei
+unsigned int setted_temp = 0;
+bool input_permision = false;//permite inputul la temperatura doar daca a fost introdusa distanta
+bool program_state  = false;//porneste si stinge anumite functionalitati a programei
 //----------------------------------------------------------------------------
 
 //---Ultrasonic----------------------------------------------------------------
 unsigned int current_distance = 0;
-unsigned int current_temp 	  = 0;
+unsigned int current_temp = 0;
 unsigned int initial_distance = 0;
 //-----------------------------------------------------------------------------
 
