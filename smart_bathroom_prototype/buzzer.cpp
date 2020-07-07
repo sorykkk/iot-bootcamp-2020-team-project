@@ -18,5 +18,5 @@ void ActivateBuzzer()
     delay(10);
   }
 
-  //delay(500);
+  delay(500);
 }
