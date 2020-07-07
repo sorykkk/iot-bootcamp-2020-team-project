@@ -16,12 +16,18 @@ char auth[] = "6Shubi9hflK0GvXdhAK_Tun0lvj6gllp";
 char ssid[] = "Orange-Tekwill";
 char pass[] = "";
 
-int button_state;
-BLYNK_CONNECTED(){ Blynk.syncVirtual(V1); }
-BLYNK_WRITE(V1){ button_state = param.asInt(); }
+//Virtual pump button init
+//------------------------------------------------------------------------------------------
+int pump_button_state;
+BLYNK_CONNECTED(){ Blynk.syncVirtual(V1); Blynk.syncVirtual(V0);}
+BLYNK_WRITE(V1){ pump_button_state = param.asInt(); }
+
+//Virtual lcd init
+//------------------------------------------------------------------------------------------
+WidgetLCD virtual_lcd(V10);
 //------------------------------------------------------------------------------------------
 
-//---Extern-variables-definition(global)---------------------------------------------------------
+//---Extern-variables-definition(global)----------------------------------------------------
 unsigned int setted_distance = 0;
 unsigned int setted_temp = 0;
 bool input_permision = false;//permite inputul la temperatura doar daca a fost introdusa distanta
@@ -95,13 +101,14 @@ void CancelProcess()
 
 void VirtualCancel()
 {
-  if(button_state)
-    CancelProcess();
+  if(program_state)
+    if(pump_button_state)
+      CancelProcess();
 }
 
 void IfCancelProcess()
 {
-  if(/*setted_distance && setted_temp &&*/ program_state)//problema ca trebuie un hold time mai mare pt ca sa dovedeasca sa citeasca caracterul
+  if(program_state)//problema ca trebuie un hold time mai mare pt ca sa dovedeasca sa citeasca caracterul
   {
     char cancel = mkeypad.getKey();
     if(cancel == 'C')
@@ -129,14 +136,15 @@ void FinishProcess(int dist)
 
       lcd.clear();
       lcd.print("PROCESS FINISHED");
+      PrintVirtualLCD();
 
-      while(!pir_state)//
+      while(!pir_state)
       {
         ActivateBuzzer();
         pir_state = DetectMotion();
       }
 
-      /**/pir_state = false;
+      pir_state = false;
       delay(1000);
     }
   }
@@ -176,6 +184,16 @@ void send_sensor()//Write to blynk app the telemetry
   Blynk.virtualWrite(V6, map(visual_distance(), 0, setted_distance, 0, 1023));
 }
 
+void PrintVirtualLCD()//print info about water flow on virtual lcd widget
+{
+  virtual_lcd.print(3, 0, "WATER FLOW");
+  
+  if(program_state)
+    virtual_lcd.print(7, 1, "ON ");
+    
+  else virtual_lcd.print(7, 1, "OFF");
+}
+
 void setup()
 {
   //---Init-sensors------------------------------
@@ -188,7 +206,7 @@ void setup()
   //---------------------------------------------
 
   //---Init-WiFi-Connection----------------------
-  Serial.begin(115200);
+//  Serial.begin(115200);
 //  Serial.print("Connecting to ");
 //  Serial.println(ssid);
 
@@ -228,12 +246,12 @@ void loop()
 
   /**/ActivatePumps();//problem with lcd, caused by pumps power supply
 
-  if(/*setted_distance && setted_temp &&*/ program_state)
+  if(program_state)
     PrintCurrentTemperature(current_temp);
-
-  if(program_state)//run virtual button of cancel if the main program is running
-    VirtualCancel();
-    
+  
+  VirtualCancel();//run virtual button of cancel if the main program is running
+  PrintVirtualLCD();
+  
   IfCancelProcess();//se termina fortat procesul in caz ca este apasata litera 'C'
   FinishProcess(distance);
 
