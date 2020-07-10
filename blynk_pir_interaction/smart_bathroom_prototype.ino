@@ -162,7 +162,7 @@ void setup()
   //---Init-sensors------------------------------
   InitLCDStartPhase();
   InitTemperature();
-  initial_distance = (unsigned int)GetInitialDistance();//se ia distanta initiala fara apa pt a verifica prin diferenta care este inaltimea efectiva la care se ridica apa
+  initial_distance = (unsigned int)GetDistance();//GetInitialDistance();//se ia distanta initiala fara apa pt a verifica prin diferenta care este inaltimea efectiva la care se ridica apa
   InitPumps();
   InitBuzzer();
   InitPIR();
