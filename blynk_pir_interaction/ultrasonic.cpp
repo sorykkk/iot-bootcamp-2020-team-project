@@ -8,7 +8,7 @@ float GetDistance(void)
   return (distance_sensor.measureDistanceCm());
 }
 
-float GetInitialDistance(void)
-{
-  return (distance_sensor.measureDistanceCm());
-}
+// float GetInitialDistance(void)
+// {
+//   return (distance_sensor.measureDistanceCm());
+// }
