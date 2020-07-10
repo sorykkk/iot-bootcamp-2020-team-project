@@ -187,8 +187,7 @@ void loop()
 
   /**/ActivatePumps();//problem with lcd, caused by pumps power supply
 
-  if(program_state)/**///de pus conditia cu program_state in functia pe care o cheama
-    PrintCurrentTemperature(current_temp);
+  PrintCurrentTemperature(current_temp);
   
   VirtualCancel();//run virtual button of cancel if the main program is running
   PrintVirtualLCD();
