@@ -17,10 +17,13 @@ float GetTemperature()
 
 void PrintCurrentTemperature(unsigned int num)
 {
-  lcd.setCursor(0, 0);
-  lcd.print("CURRENT TEMP:");
-  lcd.setCursor(0, 1);
-  lcd.print(num);
-  lcd.setCursor(CountNumberOfDigits(num)+1, 1);
-  lcd.write((byte)0); lcd.print("C");
+  if(program_state)
+  {
+    lcd.setCursor(0, 0);
+    lcd.print("CURRENT TEMP:");
+    lcd.setCursor(0, 1);
+    lcd.print(num);
+    lcd.setCursor(CountNumberOfDigits(num)+1, 1);
+    lcd.write((byte)0); lcd.print("C");
+  }
 }
