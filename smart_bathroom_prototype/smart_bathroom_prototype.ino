@@ -160,7 +160,7 @@ void setup()
   InitBuzzer();
   InitPIR();
   //---------------------------------------------
-
+  
   InitBlynk();//initialize wifi with blynk app
 }
 
@@ -203,7 +203,7 @@ void loop()
 //  Serial.println(current_temp);
 //  Serial.print("CURRENT DIST: ");
 //  Serial.println(current_distance);
-//
+
 //  Serial.println();
 //  delay(500);
 //-------------------------------------------------------------------------------------

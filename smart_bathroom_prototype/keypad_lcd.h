@@ -1,6 +1,6 @@
-#include <Keypad.h>
-#include <LiquidCrystal_I2C.h>
-//#include "../extern_variables.h"
+//#include <Keypad.h>
+//#include <LiquidCrystal_I2C.h>
+#include "extern_variables.h"
 
 #ifndef _KEYPAD_LCD_
 #define _KEYPAD_LCD_
@@ -13,7 +13,6 @@ const int DIST_MIN_LIMIT = 0;
 const int TEMP_LENGTH_LIMIT = 2;
 const int TEMP_MAX_LIMIT = 100;
 const int TEMP_MIN_LIMIT = 20;
-
 
 unsigned int CountNumberOfDigits(unsigned int);
 void InitialDisplay(char);
