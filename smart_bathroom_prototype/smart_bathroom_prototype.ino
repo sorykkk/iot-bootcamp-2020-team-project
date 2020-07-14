@@ -23,7 +23,7 @@ const unsigned long show_time = 1000;//1 sec
 //---Ultrasonic-----------------------------------------------------------------------------
 unsigned int current_distance = 0;
 unsigned int initial_distance = 0;
-static int distance = 0;
+int distance = 0;
 //-----------------------------------------------------------------------------------------
 
 //---Temperature---------------------------------------------------------------------------
