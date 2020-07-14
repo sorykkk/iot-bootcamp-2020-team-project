@@ -13,13 +13,15 @@ extern bool input_permision;
 extern bool program_state;
 //---------------------------------------------------------------------------------------
 
-//---Extern-used-object-declaration------------------------------------------------------
+//---Extern-used-objects-declaration-----------------------------------------------------
 extern LiquidCrystal_I2C lcd;
 extern Keypad mkeypad;
 extern byte grad[8];
 //---------------------------------------------------------------------------------------
 
+//---Extern-used-functions-declaration---------------------------------------------------
 extern void CancelProcess(void);
 extern int visual_distance(void);
+//---------------------------------------------------------------------------------------
 
 #endif
