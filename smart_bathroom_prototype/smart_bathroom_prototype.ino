@@ -1,4 +1,4 @@
-#include "extern_variables.h"//conteaza si ordinea introducerii bibliotecilor//in cazul bibliotecii extern_variables.h unde se declar variabilile externe
+#include "extern_variables.h"//conteaza si ordinea introducerii bibliotecilor
 #include "ultrasonic.h"
 #include "keypad_lcd.h"
 #include "temp.h"
