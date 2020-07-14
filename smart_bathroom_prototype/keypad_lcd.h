@@ -1,5 +1,3 @@
-//#include <Keypad.h>
-//#include <LiquidCrystal_I2C.h>
 #include "extern_variables.h"
 
 #ifndef _KEYPAD_LCD_
