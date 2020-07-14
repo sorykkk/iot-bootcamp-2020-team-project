@@ -3,9 +3,9 @@
 #include "extern_variables.h"
 #include <Arduino.h>
 
-void InitTemperature() { pinMode(TEMP_PIN, INPUT); }
+void InitTemperature(void) { pinMode(TEMP_PIN, INPUT); }
 
-float GetTemperature()
+float GetTemperature(void)
 {
   int tempReading =analogRead(TEMP_PIN);
   double tempK = log(10000.0 * ((1024.0 / tempReading -1)));

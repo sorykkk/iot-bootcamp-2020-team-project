@@ -32,13 +32,13 @@ void BlynkNotify(unsigned int current_temp)
   Blynk.email("SmartBathroom", "Your bathroom is ready!");
 }
 
-void send_sensor()//Write to blynk app the telemetry
+void send_sensor()//Inscrierea in blynk app a telemetriei
 {
   Blynk.virtualWrite(V5, GetTemperature());
   Blynk.virtualWrite(V6, map(visual_distance(), 0, setted_distance, 0, 1023));
 }
 
-void InitBlynk()
+void InitBlynk(void)
 {
   WiFi.begin(ssid, pass);
   
@@ -48,14 +48,13 @@ void InitBlynk()
   //---------------------------------------------
 }
 
-void VirtualCancel()
+void VirtualCancel(void)
 {
-  if(program_state)
-    if(pump_button_state)
-      CancelProcess();
+  if(pump_button_state)
+    CancelProcess();
 }
 
-void PrintVirtualLCD()//print info about water flow on virtual lcd widget
+void PrintVirtualLCD(void)//printarea informatiei despre water flow pe virtual lcd widget
 {
   virtual_lcd.print(3, 0, "WATER FLOW");
   
@@ -65,7 +64,7 @@ void PrintVirtualLCD()//print info about water flow on virtual lcd widget
   else virtual_lcd.print(7, 1, "OFF");
 }
 
-void BlynkRunProcess()
+void BlynkRunProcess(void)
 {
   //---Run-Blynk-app-----------------------------
   Blynk.run();

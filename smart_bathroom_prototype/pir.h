@@ -3,7 +3,7 @@
 
 const int PIR_PIN = 15;//15
 
-void InitPIR();
-bool DetectMotion();
+void InitPIR(void);
+bool DetectMotion(void);
 
 #endif

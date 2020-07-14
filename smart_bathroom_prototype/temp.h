@@ -3,8 +3,8 @@
 
 const int TEMP_PIN = 35;
 
-void InitTemperature();
-float GetTemperature();
+void InitTemperature(void);
+float GetTemperature(void);
 void PrintCurrentTemperature(unsigned int);
 
 

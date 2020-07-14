@@ -1,33 +1,33 @@
 #include "pump.h"
 #include <Arduino.h>
 
-void InitPumps()
+void InitPumps(void)
 {
   pinMode(HOT_PUMP, OUTPUT);
   pinMode(COLD_PUMP, OUTPUT);
 }
 
-void HotPumpOn()
+void HotPumpOn(void)
 {
   digitalWrite(HOT_PUMP, HIGH);
 }
 
-void HotPumpOff()
+void HotPumpOff(void)
 {
   digitalWrite(HOT_PUMP, LOW);
 }
 
-void ColdPumpOn()
+void ColdPumpOn(void)
 {
   digitalWrite(COLD_PUMP, HIGH);
 }
 
-void ColdPumpOff()
+void ColdPumpOff(void)
 {
   digitalWrite(COLD_PUMP, LOW);
 }
 
-void PumpsOff()
+void PumpsOff(void)
 {
   ColdPumpOff();
   HotPumpOff();

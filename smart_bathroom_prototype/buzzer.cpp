@@ -1,12 +1,12 @@
 #include "buzzer.h"
 #include <Arduino.h>
 
-void InitBuzzer()
+void InitBuzzer(void)
 {
   pinMode(BUZZER_PIN, OUTPUT);
 }
 
-void ActivateBuzzer()
+void ActivateBuzzer(void)
 {
   unsigned char i;
 
