@@ -229,7 +229,7 @@ void debugging(bool debug_status)
     Serial.println(initial_distance);
     Serial.print("Current temperature: ");
     Serial.println(current_temp);
-    Serial.print("CURRENT DIST: ");
+    Serial.print("Current distance: ");
     Serial.println(current_distance);
   
     Serial.println();
